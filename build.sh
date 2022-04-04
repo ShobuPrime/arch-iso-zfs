@@ -572,7 +572,7 @@ function _main ()
     cd "${PATH_TO_THIS_SCRIPT}"
     
     # Add ArchZFS keys
-    pacman -Sy --needed --noconfirm wget dkms
+    pacman -Sy --needed --noconfirm wget dkms archiso
     wget https://archzfs.com/archzfs.gpg
     pacman-key -a archzfs.gpg
     pacman-key -r DDF7DB817396A49B2A2723F7403BD972F75D9D76
