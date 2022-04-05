@@ -68,6 +68,7 @@ function add_packages_and_repository ()
     #bo: adding package
     echo "zfs-dkms" >> ${PATH_TO_THE_PACKAGES_FILE}
     echo "zfs-utils" >> ${PATH_TO_THE_PACKAGES_FILE}
+    echo "linux-headers" >> ${PATH_TO_THE_PACKAGES_FILE}
     #eo: adding package
     echo ":: Finished adding packages and repository"
 }
@@ -581,7 +582,7 @@ function _main ()
     # Check the fingerprint and verify it matches the one on the archzfs page
     pacman-key -f DDF7DB817396A49B2A2723F7403BD972F75D9D76
     
-    sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block keyboard zfs filesystems shutdown)/g' /etc/mkinitcpio.conf
+    sed -i 's/HOOKS=(base udev autodetect modconf block keyboard keymap consolefont filesystems fsck)/HOOKS=(base udev autodetect modconf block keyboard zfs keymap consolefont filesystems fsck shutdown)/g' /usr/share/archiso/configs/releng/airootfs/etc/mkinitcpio.conf
 
     cleanup_build_path ${ISO_FILE_PATH} ${SHA512_FILE_PATH}
     setup_environment "/usr/share/archiso/configs/releng" ${PATH_TO_THE_DYNAMIC_DATA_DIRECTORY}
